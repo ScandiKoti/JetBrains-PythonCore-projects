@@ -2,4 +2,4 @@
 Python Core at https://hyperskill.org
 
 
-Completed Projects: Currency Converter, Dominoes
+Completed Projects: Currency Converter, Dominoes, Markdown Editor
