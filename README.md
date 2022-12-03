@@ -5,3 +5,5 @@ This track will guide you on your path of mastering Python, one of the much-in-d
 
 
 Completed Projects: Currency Converter, Dominoes, Markdown Editor, Arithmetic Exam Application, Bill Splitter, Rock-Paper-Scissors, Coffee Machine, Knight's Tour Puzzle
+
+The code that passes the Project Completion
