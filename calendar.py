@@ -1,15 +1,23 @@
 import datetime
+import re
 
 
 def note():
-    year = input("Let's add a note to the calendar.\nEnter year:\n")
-    month = input("Enter month:\n")
-    day = input("Enter day:\n")
-    hour = input("Enter hour:\n")
-    minute = input("Enter minute:\n")
+    date = input("Let's add a note to the calendar.\nEnter date and time (in format «YYYY-MM-DD HH:MM»):\n")
+    while not re.match(r'\d{4}-\d\d-\d\d\s\d\d:\d\d', date):
+        date = input("Incorrect format. Please try again (use the format «YYYY-MM-DD HH:MM»):\n")
+    while not re.match('(0[1-9]|1[0-2])', re.split('[-\\s:]', date)[1]):
+        date = input("Incorrect month value. The month should be in 1-12.\nPlease try again:\n")
+    while not re.match('(0[1-9]|[12][0-9]|3[01])', re.split('[-\\s:]', date)[2]):
+        date = input("Incorrect day value. The day should be in 1-31.\nPlease try again:\n")
+    while not re.match('([01][0-9]|2[0-3])', re.split('[-\\s:]', date)[3]):
+        date = input("Incorrect hour value. The hour should be in 00-23.\nPlease try again:\n")
+    while not re.match('([0-5][0-9])', re.split('[-\\s:]', date)[4]):
+        date = input("Incorrect minute value. The minutes should be in 00-59.\nPlease try again:\n")
+    check_date = re.split('[-\\s:]', date)
     text = input("Enter a text:\n")
     with open("notes.txt", "a") as file:
-        file.write(f"{day}/{month}/{year} {hour}:{minute} >{text}\n")
+        file.write(f"{check_date[2]}/{check_date[1]}/{check_date[0]} {check_date[3]}:{check_date[4]} >{text}\n")
 
 
 def read_note():
